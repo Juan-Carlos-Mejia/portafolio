@@ -1,0 +1,382 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0d8; /* Fondo principal */
+    color: #604848; /* Color de texto principal */
+    line-height: 1.6;
+}
+
+header {
+    background-color: #607848; /* Color del menú */
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.menu-icon {
+    display: none; /* Oculta el ícono del menú en pantallas grandes */
+    font-size: 24px;
+    color: #f0f0d8;
+    cursor: pointer;
+}
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centra las opciones del menú */
+    flex: 1; 
+}
+
+.menu li {
+    margin: 0 15px;
+}
+
+.menu li a {
+    color: #f0f0d8;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.menu li a:hover {
+    color: #c0d860;
+}
+.section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1 {
+    color: #607848; /* Color del título principal */
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    color: #789048; /* Color del subtítulo */
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.descripcion {
+    color: #604848; /* Color del texto de descripción */
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    margin-top: 5%;
+}
+
+.botones-inicio {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 5%;
+}
+
+.boton {
+    background-color: #c0d860; /* Color de los botones */
+    color: #604848;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+    background-color: #789048; /* Color al hacer hover en botones */
+}
+
+h2 {
+    color: #607848; /* Color del título de la sección */
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.sobre-contenido {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    text-align: left;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.imagen-perfil img {
+    width: 200px; /* Tamaño de la imagen */
+    height: 200px;
+    border-radius: 50%; /* Hace la imagen redonda */
+    border: 4px solid #789048; /* Borde de la imagen */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.imagen-perfil img:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+    transition: transform 0.3s ease;
+}
+
+.texto-sobre {
+    flex: 1;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.texto-sobre p {
+    margin-bottom: 20px;
+}
+
+.texto-sobre strong {
+    color: #789048; /* Color para resaltar palabras clave */
+}
+h3 {
+    color: #789048; /* Color del subtítulo */
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* Habilidades Duras */
+.habilidades-duras {
+    margin-bottom: 60px;
+}
+
+.habilidades-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.habilidad {
+    background-color: #789048; /* Color de las tarjetas */
+    padding: 20px;
+    border-radius: 10px;
+    width: 120px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.habilidad:hover {
+    transform: translateY(-10px);
+}
+
+.habilidad i {
+    font-size: 2rem;
+    color: #f0f0d8; /* Color de los íconos */
+    margin-bottom: 10px;
+}
+
+.habilidad p {
+    color: #f0f0d8; /* Color del texto */
+    font-size: 1rem;
+    margin: 0;
+}
+/* Estilos para la sección de Habilidades Blandas */
+.habilidades-blandas {
+    perspective: 1000px;
+    margin-top: 40px; /* Añade margen superior para bajar el cubo */
+}
+.habilidades-blandas h3 {
+    margin-bottom: 100px; /* Espacio entre el título y el cubo */
+}
+.cubo {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    margin: 0 auto;
+    transform-style: preserve-3d;
+    animation: rotar 15s infinite linear;
+}
+
+.cubo .cara {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: #789048; /* Color de las caras */
+    border: 2px solid #607848; /* Borde de las caras */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    color: #f0f0d8; /* Color del texto */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.cubo .frontal {
+    transform: translateZ(100px);
+}
+
+.cubo .trasera {
+    transform: rotateY(180deg) translateZ(100px);
+}
+
+.cubo .izquierda {
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+.cubo .derecha {
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+.cubo .superior {
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+.cubo .inferior {
+    transform: rotateX(-90deg) translateZ(100px);
+}
+
+@keyframes rotar {
+    0% {
+        transform: rotateX(0) rotateY(0);
+    }
+    100% {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+.separador {
+    border: none; /* Elimina el borde por defecto */
+    height: 2px; /* Grosor de la línea */
+    background-color: #789048; /* Color de la línea */
+    margin: 40px auto; /* Espacio arriba y abajo de la línea */
+    width: 80%; /* Ancho de la línea */
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+#proyectos {
+    background-color: #f0f0d8; /* Fondo de la sección Proyectos */
+    color: #604848;
+}
+
+.proyectos-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.proyecto {
+    background-color: #789048; /* Color de las tarjetas de proyectos */
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #f0f0d8;
+}
+
+#contacto {
+    background-color: #f0f0d8; /* Fondo de la sección Contacto */
+    color: #604848;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+form label {
+    margin: 10px 0 5px;
+    color: #604848;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #607848;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #604848;
+}
+
+form button {
+    background-color: #c0d860; /* Color de los botones */
+    color: #604848;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #789048; /* Color al hacer hover en botones */
+}
+
+footer {
+    background-color: #607848; /* Color del footer */
+    color: #f0f0d8;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .sobre-contenido {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        text-align: center; /* Centra el texto */
+    }
+
+    .imagen-perfil img {
+        margin-bottom: 20px;
+        width: 150px;
+        height: 150px;
+    }
+    .menu-icon {
+        display: block; /* Muestra el ícono del menú en móviles */
+    }
+
+    .menu {
+        display: none; /* Oculta el menú en móviles */
+        flex-direction: column;
+        width: 100%;
+        background-color: #607848;
+        position: absolute;
+        top: 50px;
+        left: 0;
+    }
+
+    .menu.active {
+        display: flex; /* Muestra el menú cuando está activo */
+    }
+
+    .menu li {
+        margin: 10px 0;
+        text-align: center;
+    }
+}
