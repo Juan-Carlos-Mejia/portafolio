@@ -44,3 +44,84 @@ menu.querySelectorAll('a').forEach(link => {
         menu.classList.remove('active');
     });
 });
+
+// Carrusel
+let indice = 0;
+const intervalo = 3000; // Intervalo de tiempo en milisegundos (3 segundos)
+const contenedor = document.querySelector('.carrusel-contenedor');
+const certificaciones = document.querySelectorAll('.certificacion');
+const total = certificaciones.length;
+
+// Clona las primeras imágenes y las añade al final, y viceversa
+function clonarCertificaciones() {
+    const primerasCertificaciones = Array.from(certificaciones).slice(0, 2); // Clona las primeras 2
+    const ultimasCertificaciones = Array.from(certificaciones).slice(-2); // Clona las últimas 2
+
+    // Añade las clonaciones al principio y al final
+    primerasCertificaciones.forEach(certificacion => {
+        const clon = certificacion.cloneNode(true);
+        contenedor.appendChild(clon);
+    });
+
+    ultimasCertificaciones.forEach(certificacion => {
+        const clon = certificacion.cloneNode(true);
+        contenedor.insertBefore(clon, contenedor.firstChild);
+    });
+
+    // Ajusta el índice inicial para empezar en la primera imagen original
+    indice = 2;
+    contenedor.style.transform = `translateX(${-indice * 33.33}%)`;
+}
+
+// Mueve el carrusel
+function moverCarrusel(direccion) {
+    indice += direccion;
+
+    // Si llega al final, regresa al inicio sin saltos
+    if (indice >= total + 2) {
+        setTimeout(() => {
+            contenedor.style.transition = 'none'; // Desactiva la transición
+            indice = 2; // Vuelve al inicio
+            contenedor.style.transform = `translateX(${-indice * 33.33}%)`;
+        }, 500); // Espera a que termine la transición
+    }
+
+    // Si llega al principio, regresa al final sin saltos
+    if (indice < 2) {
+        setTimeout(() => {
+            contenedor.style.transition = 'none'; // Desactiva la transición
+            indice = total + 2; // Vuelve al final
+            contenedor.style.transform = `translateX(${-indice * 33.33}%)`;
+        }, 500); // Espera a que termine la transición
+    }
+
+    // Activa la transición y mueve el carrusel
+    contenedor.style.transition = 'transform 0.5s ease';
+    contenedor.style.transform = `translateX(${-indice * 33.33}%)`;
+}
+
+// Desplazamiento automático
+function iniciarCarruselAutomatico() {
+    setInterval(() => {
+        moverCarrusel(1); // Mueve el carrusel a la siguiente certificación
+    }, intervalo);
+}
+
+// Clona las certificaciones y inicia el carrusel
+clonarCertificaciones();
+iniciarCarruselAutomatico();
+
+// Modal
+const modal = document.getElementById('modal');
+const modalImagen = document.getElementById('modal-imagen');
+
+document.querySelectorAll('.certificacion img').forEach(imagen => {
+    imagen.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        modalImagen.src = imagen.src;
+    });
+});
+
+function cerrarModal() {
+    modal.style.display = 'none';
+}

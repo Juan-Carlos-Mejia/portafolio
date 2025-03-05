@@ -143,7 +143,50 @@
     </section>
 
     <hr class="separador">
-
+    <!-- Sección Certificaciones -->
+<section id="certificaciones" class="section">
+    <div class="container">
+        <h2>Certificaciones</h2>
+        <div class="carrusel">
+            <div class="carrusel-contenedor">
+                <div class="certificacion">
+                    <img src="nube.jpeg" alt="Certificación 1">
+                    <p class="titulo-certificacion">cloud skills challenge</p>
+                </div>
+                <div class="certificacion">
+                    <img src="diseño.jpeg" alt="Certificación 2">
+                    <p class="titulo-certificacion">CLIC 2021</p>
+                </div>
+                <div class="certificacion">
+                    <img src="clic.jpeg" alt="Certificación 3">
+                    <p class="titulo-certificacion">Taller de interfaces de usuario UI/UX</p>
+                </div>
+                <div class="certificacion">
+                    <img src="certificacion4.jpg" alt="Certificación 4">
+                    <p class="titulo-certificacion">Título de la Certificación 4</p>
+                </div>
+                <div class="certificacion">
+                    <img src="certificacion5.jpg" alt="Certificación 5">
+                    <p class="titulo-certificacion">Título de la Certificación 5</p>
+                </div>
+                <div class="certificacion">
+                    <img src="certificacion6.jpg" alt="Certificación 6">
+                    <p class="titulo-certificacion">Título de la Certificación 6</p>
+                </div>
+                <div class="certificacion">
+                    <img src="certificacion7.jpg" alt="Certificación 7">
+                    <p class="titulo-certificacion">Título de la Certificación 7</p>
+                </div><div class="certificacion">
+                    <img src="certificacion8.jpg" alt="Certificación 8">
+                    <p class="titulo-certificacion">Título de la Certificación 8</p>
+                </div>
+            </div>
+            <button class="carrusel-btn anterior" onclick="moverCarrusel(-1)">&#10094;</button>
+            <button class="carrusel-btn siguiente" onclick="moverCarrusel(1)">&#10095;</button>
+        </div>
+    </div>
+</section>
+    <hr class="separador">
     <section id="proyectos" class="section reveal">
         <div class="container">
             <h2>Proyectos</h2>
@@ -187,6 +230,11 @@
     <footer>
         <p>&copy; 2025 Juan Mejia. Todos los derechos reservados.</p>
     </footer>
+
+    <div id="modal" class="modal">
+        <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
+        <img class="modal-contenido" id="modal-imagen">
+    </div>
 
     <script src="script.js"></script>
 </body>

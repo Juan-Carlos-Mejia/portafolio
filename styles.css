@@ -149,7 +149,7 @@ h2 {
     color: #789048; /* Color para resaltar palabras clave */
 }
 h3 {
-    color: #789048; /* Color del subtítulo */
+    color: #fff; /* Color del subtítulo */
     font-size: 1.5rem;
     margin-bottom: 20px;
 }
@@ -343,6 +343,108 @@ footer {
     color: #f0f0d8;
     text-align: center;
     padding: 10px 0;
+}
+/* Estilos para el carrusel */
+.carrusel {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carrusel-contenedor {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.certificacion {
+    flex: 0 0 33.33%; /* Muestra 3 certificaciones a la vez */
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.certificacion img {
+    width: 100%; /* Ajusta el ancho al 100% del contenedor */
+    height: 200px; /* Altura fija para todas las imágenes */
+    object-fit: cover; /* Ajusta la imagen sin distorsionarla */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.certificacion img:hover {
+    transform: scale(1.05); /* Efecto hover */
+}
+
+.titulo-certificacion {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #604848;
+    text-align: center;
+}
+
+.carrusel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.carrusel-btn.anterior {
+    left: 10px;
+}
+
+.carrusel-btn.siguiente {
+    right: 10px;
+}
+
+/* Estilos para el modal (sin cambios) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contenido {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cerrar-modal:hover {
+    color: #c0d860;
+}
+
+.titulo-certificacion:hover {
+    color: #789048; /* Cambia el color al hacer hover */
 }
 
 /* Estilos para dispositivos móviles */
