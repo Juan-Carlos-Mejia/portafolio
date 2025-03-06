@@ -127,77 +127,88 @@ function cerrarModal() {
 }
 
 //manipulacion del muro
-
 let cubo = document.getElementById("cubo");
-        let rotX = 0, rotY = 0;
-        let startX, startY, isDragging = false;
-        let animacionActiva = true;
-        let tiempoReanudar;
+let rotX = 0, rotY = 0;
+let startX, startY, isDragging = false;
+let animacionActiva = true;
+let tiempoReanudar;
 
-        function actualizarRotacion() {
-            cubo.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
-        }
+// Actualiza la rotación del cubo
+function actualizarRotacion() {
+    cubo.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+}
 
-        function detenerAnimacion() {
-            cubo.style.animation = "none"; // Detiene la animación automática
-            animacionActiva = false;
-            clearTimeout(tiempoReanudar);
-        }
+// Detiene la animación automática
+function detenerAnimacion() {
+    cubo.style.animation = "none";
+    animacionActiva = false;
+    clearTimeout(tiempoReanudar);
+}
 
-        function reanudarAnimacion() {
-            if (!animacionActiva) {
-                cubo.style.animation = "rotar 5s infinite linear"; // Reactiva la animación
-                animacionActiva = true;
-            }
-        }
+// Reactiva la animación después de 3s
+function reanudarAnimacion() {
+    if (!animacionActiva) {
+        cubo.style.animation = "rotar 5s infinite linear";
+        animacionActiva = true;
+    }
+}
 
-        // Cuando el usuario hace clic en el cubo
-        cubo.addEventListener("mousedown", (event) => {
-            detenerAnimacion();
-            isDragging = true;
-            startX = event.clientX;
-            startY = event.clientY;
-        });
+// 🖱️ EVENTOS PARA PC (Mouse)
+cubo.addEventListener("mousedown", (event) => {
+    detenerAnimacion();
+    isDragging = true;
+    startX = event.clientX;
+    startY = event.clientY;
+});
 
-        // Cuando el usuario mueve el mouse mientras mantiene presionado el clic
-        document.addEventListener("mousemove", (event) => {
-            if (!isDragging) return;
+document.addEventListener("mousemove", (event) => {
+    if (!isDragging) return;
 
-            let deltaX = event.clientX - startX;
-            let deltaY = event.clientY - startY;
-            rotY += deltaX * 0.5; // Ajuste de sensibilidad horizontal
-            rotX -= deltaY * 0.5; // Ajuste de sensibilidad vertical
+    let deltaX = event.clientX - startX;
+    let deltaY = event.clientY - startY;
+    rotY += deltaX * 0.5;
+    rotX -= deltaY * 0.5;
 
-            actualizarRotacion();
-            startX = event.clientX;
-            startY = event.clientY;
-        });
+    actualizarRotacion();
+    startX = event.clientX;
+    startY = event.clientY;
+});
 
-        // Cuando el usuario suelta el clic
-        document.addEventListener("mouseup", () => {
-            isDragging = false;
-            tiempoReanudar = setTimeout(reanudarAnimacion, 3000); // Reactiva la animación después de 3s sin mover
-        });
+document.addEventListener("mouseup", () => {
+    isDragging = false;
+    tiempoReanudar = setTimeout(reanudarAnimacion, 3000);
+});
 
-         cubo.addEventListener("touchstart", (event) => {
-            detenerAnimacion();
-            isDragging = true;
-            startX = event.touches[0].clientX;
-            startY = event.touches[0].clientY;
-        });
+// 📱 EVENTOS PARA CELULAR/TABLET (Touch)
+cubo.addEventListener("touchstart", (event) => {
+    detenerAnimacion();
+    isDragging = true;
+    let touch = event.touches[0];
+    startX = touch.clientX;
+    startY = touch.clientY;
 
-        document.addEventListener("touchmove", (event) => {
-            if (!isDragging) return;
-            let deltaX = event.touches[0].clientX - startX;
-            let deltaY = event.touches[0].clientY - startY;
-            rotY += deltaX * 0.5;
-            rotX -= deltaY * 0.5;
-            actualizarRotacion();
-            startX = event.touches[0].clientX;
-            startY = event.touches[0].clientY;
-        });
+    // Evita el desplazamiento de la página
+    event.preventDefault();
+});
 
-        document.addEventListener("touchend", () => {
-            isDragging = false;
-            tiempoReanudar = setTimeout(reanudarAnimacion, 3000);
-        });
+document.addEventListener("touchmove", (event) => {
+    if (!isDragging) return;
+    
+    let touch = event.touches[0];
+    let deltaX = touch.clientX - startX;
+    let deltaY = touch.clientY - startY;
+    rotY += deltaX * 0.5;
+    rotX -= deltaY * 0.5;
+
+    actualizarRotacion();
+    startX = touch.clientX;
+    startY = touch.clientY;
+
+    // Evita el desplazamiento de la página al mover el cubo
+    event.preventDefault();
+}, { passive: false });
+
+document.addEventListener("touchend", () => {
+    isDragging = false;
+    tiempoReanudar = setTimeout(reanudarAnimacion, 3000);
+});

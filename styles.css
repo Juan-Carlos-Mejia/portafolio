@@ -194,10 +194,10 @@ h3 {
 /* Estilos para la sección de Habilidades Blandas */
 .habilidades-blandas {
     perspective: 1000px;
-    margin-top: 40px; /* Añade margen superior para bajar el cubo */
-}
+    margin-top: 60px; /* Añade margen superior para bajar el cubo */
+} 
 .habilidades-blandas h2 {
-    margin-bottom: 100px; /* Espacio entre el título y el cubo */
+    margin-bottom: 150px; /* Espacio entre el título y el cubo */
 }
 .cubo {
     width: 200px;
