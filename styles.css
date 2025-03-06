@@ -196,7 +196,7 @@ h3 {
     perspective: 1000px;
     margin-top: 40px; /* Añade margen superior para bajar el cubo */
 }
-.habilidades-blandas h3 {
+.habilidades-blandas h2 {
     margin-bottom: 100px; /* Espacio entre el título y el cubo */
 }
 .cubo {
