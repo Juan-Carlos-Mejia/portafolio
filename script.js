@@ -126,6 +126,7 @@ function cerrarModal() {
     modal.style.display = 'none';
 }
 
+//manipulacion del muro
 
 let cubo = document.getElementById("cubo");
         let rotX = 0, rotY = 0;
@@ -176,4 +177,27 @@ let cubo = document.getElementById("cubo");
         document.addEventListener("mouseup", () => {
             isDragging = false;
             tiempoReanudar = setTimeout(reanudarAnimacion, 3000); // Reactiva la animación después de 3s sin mover
+        });
+
+         cubo.addEventListener("touchstart", (event) => {
+            detenerAnimacion();
+            isDragging = true;
+            startX = event.touches[0].clientX;
+            startY = event.touches[0].clientY;
+        });
+
+        document.addEventListener("touchmove", (event) => {
+            if (!isDragging) return;
+            let deltaX = event.touches[0].clientX - startX;
+            let deltaY = event.touches[0].clientY - startY;
+            rotY += deltaX * 0.5;
+            rotX -= deltaY * 0.5;
+            actualizarRotacion();
+            startX = event.touches[0].clientX;
+            startY = event.touches[0].clientY;
+        });
+
+        document.addEventListener("touchend", () => {
+            isDragging = false;
+            tiempoReanudar = setTimeout(reanudarAnimacion, 3000);
         });
