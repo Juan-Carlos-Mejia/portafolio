@@ -206,6 +206,10 @@ h3 {
     margin: 0 auto;
     transform-style: preserve-3d;
     animation: rotar 15s infinite linear;
+    cursor: grab;
+}
+.cubo:active {
+    cursor: grabbing; /* Cambia el cursor cuando se hace clic */
 }
 
 .cubo .cara {

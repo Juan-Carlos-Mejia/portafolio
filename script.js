@@ -125,3 +125,55 @@ document.querySelectorAll('.certificacion img').forEach(imagen => {
 function cerrarModal() {
     modal.style.display = 'none';
 }
+
+
+let cubo = document.getElementById("cubo");
+        let rotX = 0, rotY = 0;
+        let startX, startY, isDragging = false;
+        let animacionActiva = true;
+        let tiempoReanudar;
+
+        function actualizarRotacion() {
+            cubo.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+        }
+
+        function detenerAnimacion() {
+            cubo.style.animation = "none"; // Detiene la animación automática
+            animacionActiva = false;
+            clearTimeout(tiempoReanudar);
+        }
+
+        function reanudarAnimacion() {
+            if (!animacionActiva) {
+                cubo.style.animation = "rotar 5s infinite linear"; // Reactiva la animación
+                animacionActiva = true;
+            }
+        }
+
+        // Cuando el usuario hace clic en el cubo
+        cubo.addEventListener("mousedown", (event) => {
+            detenerAnimacion();
+            isDragging = true;
+            startX = event.clientX;
+            startY = event.clientY;
+        });
+
+        // Cuando el usuario mueve el mouse mientras mantiene presionado el clic
+        document.addEventListener("mousemove", (event) => {
+            if (!isDragging) return;
+
+            let deltaX = event.clientX - startX;
+            let deltaY = event.clientY - startY;
+            rotY += deltaX * 0.5; // Ajuste de sensibilidad horizontal
+            rotX -= deltaY * 0.5; // Ajuste de sensibilidad vertical
+
+            actualizarRotacion();
+            startX = event.clientX;
+            startY = event.clientY;
+        });
+
+        // Cuando el usuario suelta el clic
+        document.addEventListener("mouseup", () => {
+            isDragging = false;
+            tiempoReanudar = setTimeout(reanudarAnimacion, 3000); // Reactiva la animación después de 3s sin mover
+        });
