@@ -212,3 +212,17 @@ document.addEventListener("touchend", () => {
     isDragging = false;
     tiempoReanudar = setTimeout(reanudarAnimacion, 3000);
 });
+
+
+//proyecto
+// Añade efecto de zoom al pasar el mouse
+document.querySelectorAll('.proyecto').forEach(proyecto => {
+    proyecto.addEventListener('mouseenter', () => {
+        proyecto.querySelector('.proyecto-imagen').style.transform = 'scale(1.05)';
+    });
+    proyecto.addEventListener('mouseleave', () => {
+        proyecto.querySelector('.proyecto-imagen').style.transform = 'scale(1)';
+    });
+});
+
+//idioma

@@ -451,11 +451,102 @@ footer {
     color: #789048; /* Cambia el color al hacer hover */
 }
 
+/* Estilos para la sección de Proyectos */
+.proyectos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.proyecto {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.proyecto:hover {
+    transform: translateY(-10px);
+}
+
+.proyecto-imagen {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid #789048;
+}
+
+.proyecto-contenido {
+    padding: 20px;
+    text-align: left;
+}
+
+.proyecto-contenido h3 {
+    color: #607848;
+    margin-bottom: 10px;
+}
+
+.proyecto-contenido p {
+    color: #604848;
+    margin-bottom: 15px;
+}
+
+.boton-proyecto {
+    display: inline-block;
+    background-color: #c0d860;
+    color: #604848;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.boton-proyecto:hover {
+    background-color: #789048;
+    color: #fff;
+}
+
 /* Estilos para dispositivos móviles */
+
+/* Media Queries para móviles */
 @media (max-width: 768px) {
+    /* Header */
+    .menu-icon {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #607848;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        padding: 20px 0;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu li {
+        margin: 10px 0;
+        margin-left: 40%;
+    }
+
+    /* Sección Inicio */
+    .bienvenida-contenedor {
+        flex-direction: column;
+    }
+
+    /* Sección Sobre mí */
     .sobre-contenido {
-        flex-direction: column; /* Apila los elementos verticalmente */
-        text-align: center; /* Centra el texto */
+        flex-direction: column;
+        text-align: center;
     }
 
     .imagen-perfil img {
@@ -463,26 +554,95 @@ footer {
         width: 150px;
         height: 150px;
     }
-    .menu-icon {
-        display: block; /* Muestra el ícono del menú en móviles */
+
+    /* Carrusel */
+    .certificacion {
+        flex: 0 0 100%;
     }
 
-    .menu {
-        display: none; /* Oculta el menú en móviles */
+    /* Selector de idioma */
+    .selector-idioma {
+        margin: 10px;
+    }
+}
+
+
+/*logo*/
+/* Logo en el menú */
+.logo-menu {
+    margin-right: -400px; /* Empuja el menú a la derecha */
+    margin-left: 300px;
+    padding: 5px 20px;
+}
+
+.logo-pequeno {
+    height: 50px; /* Tamaño para el header */
+    transition: transform 0.3s ease;
+}
+
+.logo-pequeno:hover {
+    transform: scale(2.2);
+}
+
+
+/* Logo grande en inicio */
+.logo-grande {
+    flex: 0 0 300px;
+    text-align: right;
+    margin-top: -300px;
+    margin-right: 150px;
+}
+
+.logo-principal {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
+    animation: flotar 3s ease-in-out infinite alternate;
+}
+
+@keyframes flotar {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-15px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .bienvenida-contenedor {
         flex-direction: column;
-        width: 100%;
-        background-color: #607848;
-        position: absolute;
-        top: 50px;
-        left: 0;
     }
-
-    .menu.active {
-        display: flex; /* Muestra el menú cuando está activo */
+    
+    .logo-grande {
+        margin-top: 30px;
+        flex: 0 0 auto;
     }
+    
+    .logo-pequeno {
+        height: 30px;
+    }
+}
 
-    .menu li {
-        margin: 10px 0;
-        text-align: center;
+
+/*idioma*/
+.language-btn {
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.language-btn:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+/* Asegurarse que el botón se alinee correctamente en el menú móvil */
+@media (max-width: 768px) {
+    .language-btn {
+        margin: 10px auto;
+        
     }
 }
