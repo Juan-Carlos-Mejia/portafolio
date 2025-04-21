@@ -343,11 +343,41 @@ form button:hover {
 }
 
 footer {
-    background-color: #607848; /* Color del footer */
+    background-color: #607848;
     color: #f0f0d8;
+    padding: 15px 40px;
+    position: relative;
     text-align: center;
-    padding: 10px 0;
-}
+  }
+  
+  .footer-container {
+    position: relative;
+  }
+  
+  .footer-text {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  
+  .footer-links {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 15px;
+  }
+  
+  .footer-links a {
+    color: #000000;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+  }
+  
+  .footer-links a:hover {
+    color: #ffffff;
+  }
+  
 /* Estilos para el carrusel */
 .carrusel {
     position: relative;
