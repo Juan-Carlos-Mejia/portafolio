@@ -600,14 +600,15 @@ footer {
 /*logo*/
 /* Logo en el menú */
 .logo-menu {
-    margin-right: -400px; /* Empuja el menú a la derecha */
-    margin-left: 300px;
+    margin-right: -500px; /* Empuja el menú a la derecha */
+    margin-left: 200px;
     padding: 5px 20px;
 }
 
 .logo-pequeno {
     height: 50px; /* Tamaño para el header */
     transition: transform 0.3s ease;
+    Margin-right:-200px;
 }
 
 .logo-pequeno:hover {
@@ -619,7 +620,7 @@ footer {
 .logo-grande {
     flex: 0 0 300px;
     text-align: right;
-    margin-top: -300px;
+    margin-top: -400px;
     margin-right: 150px;
 }
 
