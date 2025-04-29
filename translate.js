@@ -10,6 +10,7 @@ const translations = {
         subtitulo: "DESARROLLADOR BACK-END",
         descripcion: "Construyendo soluciones, optimizando el futuro.",
         curriculum: "Curriculum",
+        cvFile: "cv-es.pdf",
         habilidadesTecnicas: "Habilidades Técnicas",
         habilidadesBlandas: "Habilidades Blandas",
         certificaciones: "Certificaciones",
@@ -51,6 +52,7 @@ const translations = {
         subtitulo: "BACK-END DEVELOPER",
         descripcion: "Building solutions, optimizing the future.",
         curriculum: "Resume",
+        cvFile: "cv-en.pdf", // Archivo CV en inglés
         habilidadesTecnicas: "Technical Skills",
         habilidadesBlandas: "Soft Skills",
         certificaciones: "Certifications",
@@ -101,9 +103,12 @@ function changeLanguage() {
     document.querySelector('#inicio h1').textContent = translations[newLang].bienvenida;
     document.querySelector('.subtitulo').textContent = translations[newLang].subtitulo;
     document.querySelector('.descripcion').textContent = translations[newLang].descripcion;
+
+    // Actualizar botón de curriculum - MODIFICADO PARA CAMBIAR EL ARCHIVO
+    const cvLink = document.querySelector('a[href="cv-es.pdf"], a[href="cv-en.pdf"]');
+    cvLink.textContent = translations[newLang].curriculum;
+    cvLink.href = translations[newLang].cvFile; // Actualiza la URL del CV según el idioma
     
-    // Actualizar botón de curriculum
-    document.querySelector('a[href="CV.pdf"]').textContent = translations[newLang].curriculum;
     
     // Actualizar título y texto Sobre Mí
     document.querySelector('#sobre h2').textContent = translations[newLang].tituloSobreMi;
