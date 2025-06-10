@@ -1,15 +1,49 @@
+/* Variables de color para el modo claro (actual) */
+:root {
+    --bg-primary: #f0f0d8;
+    --text-primary: #604848;
+    --menu-bg: #607848;
+    --menu-text: #f0f0d8;
+    --menu-hover: #c0d860;
+    --title-color: #607848;
+    --subtitle-color: #789048;
+    --button-bg: #c0d860;
+    --button-hover: #789048;
+    --card-bg: #789048;
+    --card-text: #f0f0d8;
+    --section-bg: #f0f0d8;
+    --separator-color: #789048;
+}
+
+/* Variables de color para el modo oscuro */
+[data-theme="dark"] {
+    --bg-primary: #0A0C0D;
+    --text-primary: #F2F2F2;
+    --menu-bg: #1C5052;
+    --menu-text: #F2F2F2;
+    --menu-hover: #348E91;
+    --title-color: #348E91;
+    --subtitle-color: #1C5052;
+    --button-bg: #348E91;
+    --button-hover: #1C5052;
+    --card-bg: #213635;
+    --card-text: #F2F2F2;
+    --section-bg: #0A0C0D;
+    --separator-color: #1C5052; }
+
+
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0d8; /* Fondo principal */
-    color: #604848; /* Color de texto principal */
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     line-height: 1.6;
 }
 
 header {
-    background-color: #607848; /* Color del menú */
+    background-color: var(--menu-bg);
     padding: 10px 0;
     position: fixed;
     width: 100%;
@@ -45,16 +79,17 @@ nav {
 }
 
 .menu li a {
-    color: #f0f0d8;
+     color: var(--menu-text);
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 .menu li a:hover {
-    color: #c0d860;
+   color: var(--menu-hover);
 }
 .section {
+    background-color: var(--section-bg);
     padding: 80px 20px;
     text-align: center;
 }
@@ -66,20 +101,20 @@ nav {
 }
 
 h1 {
-    color: #607848; /* Color del título principal */
+    color: var(--title-color); /* Color del título principal */
     font-size: 2.5rem;
     margin-bottom: 10px;
 }
 
 .subtitulo {
-    color: #789048; /* Color del subtítulo */
+    color: var(--subtitle-color); /* Color del subtítulo */
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
 .descripcion {
-    color: #604848; /* Color del texto de descripción */
+   color: var(--text-primary); /* Color del texto de descripción */
     font-size: 1.1rem;
     max-width: 600px;
     margin: 0 auto 30px;
@@ -94,8 +129,8 @@ h1 {
 }
 
 .boton {
-    background-color: #c0d860; /* Color de los botones */
-    color: #604848;
+   background-color: var(--button-bg);
+    color: var(--text-primary);
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
@@ -104,11 +139,11 @@ h1 {
 }
 
 .boton:hover {
-    background-color: #789048; /* Color al hacer hover en botones */
+     background-color: var(--button-hover); /* Color al hacer hover en botones */
 }
 
 h2 {
-    color: #607848; /* Color del título de la sección */
+    color: var(--title-color);/* Color del título de la sección */
     font-size: 2rem;
     margin-bottom: 20px;
 }
@@ -167,7 +202,8 @@ h3 {
 }
 
 .habilidad {
-    background-color: #789048; /* Color de las tarjetas */
+    background-color: var(--card-bg);
+    color: var(--card-text);
     padding: 20px;
     border-radius: 10px;
     width: 120px;
@@ -262,7 +298,7 @@ h3 {
 .separador {
     border: none; /* Elimina el borde por defecto */
     height: 2px; /* Grosor de la línea */
-    background-color: #789048; /* Color de la línea */
+     background-color: var(--separator-color); /* Color de la línea */
     margin: 40px auto; /* Espacio arriba y abajo de la línea */
     width: 80%; /* Ancho de la línea */
 }
@@ -280,7 +316,7 @@ h3 {
 
 
 #proyectos {
-    background-color: #f0f0d8; /* Fondo de la sección Proyectos */
+        background-color: var(--section-bg); /* Fondo de la sección Proyectos */
     color: #604848;
 }
 
@@ -292,7 +328,8 @@ h3 {
 }
 
 .proyecto {
-    background-color: #789048; /* Color de las tarjetas de proyectos */
+    background-color: var(--card-bg);
+    color: var(--card-text);
     padding: 20px;
     border-radius: 10px;
     width: 300px;
@@ -301,7 +338,7 @@ h3 {
 }
 
 #contacto {
-    background-color: #f0f0d8; /* Fondo de la sección Contacto */
+    background-color: var(--section-bg); /* Fondo de la sección Contacto */
     color: #604848;
 }
 
@@ -315,7 +352,7 @@ form {
 
 form label {
     margin: 10px 0 5px;
-    color: #604848;
+    color: var(--title-color);
 }
 
 form input, form textarea {
@@ -343,7 +380,7 @@ form button:hover {
 }
 
 footer {
-    background-color: #607848;
+    background-color: var(--menu-bg);
     color: #f0f0d8;
     padding: 15px 40px;
     position: relative;
@@ -361,7 +398,7 @@ footer {
   
   .footer-links {
     position: absolute;
-    right: 0;
+    right: 5%;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
@@ -766,6 +803,90 @@ footer {
         height: 30px;
         margin-left: -350%;
     }
+}
+[data-theme="dark"] .certificacion img,
+[data-theme="dark"] .proyecto-imagen {
+    filter: brightness(0.8);
+}
+[data-theme="dark"] .cubo .cara {
+    background-color: #1C5052;
+    border-color: #348E91;
+}
+[data-theme="dark"] .footer-links a {
+    color: #348E91;
+}
+
+[data-theme="dark"] .footer-links a:hover {
+    color: #F2F2F2;
+}
+/* Estilos para el interruptor de modo oscuro */
+.theme-switch {
+    position: fixed;
+    bottom: 80px; /* Aumenta este valor según la altura de tu footer */
+    right: 20px;
+    z-index: 1000;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.main-content {
+    padding-bottom: 100px; /* Espacio para el botón + margen */
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #348E91;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider:after {
+    content: "☀️";
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    font-size: 20px;
+}
+
+input:checked + .slider:after {
+    content: "🌙";
+    left: 35px;
 }
 
 
