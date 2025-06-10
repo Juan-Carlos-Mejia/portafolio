@@ -34,11 +34,11 @@ const translations = {
         creatividad: "Creatividad \nÉtica y responsabilidad",
         aprendizaje: "Capacidad de aprendizaje \n Escucha activa",
         // Proyectos
-        proyecto1Titulo: "Calculadora Salarial febrero 2025  ROL: Programador Full Stack ",
+        proyecto1Titulo: "Calculadora Salarial febrero 2025  rol: Programador Full Stack ",
         proyecto1Desc: "Aplicación web para calcular su salario en el salvador despues de descontar lo que dicte la ley",
-        proyecto2Titulo: "Sistema de Facturación para Alumnos febrero 2024 - marzo 2024 ROL: Programador Full Stack",
+        proyecto2Titulo: "Sistema de Facturación para Alumnos febrero 2024 - marzo 2024 rol: Programador Full Stack",
         proyecto2Desc: "Plataforma web enfocado en el registros de alumnos, materias y facturación por inscripción",
-        proyecto3Titulo: "TecnologyEco febrero 2024 - mayo 2024 ROL: Programador Back-end",
+        proyecto3Titulo: "TecnologyEco febrero 2024 - mayo 2024 rol: Programador Back-end",
         proyecto3Desc: "Plataforma web enfocada en ser intermediaria entre usuarios y empresas para el reciclado de piezas de dispositivos electronicos",
         verProyecto: "Ver Proyecto",
         // Sección Intereses
@@ -92,11 +92,11 @@ const translations = {
         creatividad: "Creativity \nEthics and responsibility",
         aprendizaje: "Learning ability \n Active listening",
         // Projects
-        proyecto1Titulo: "Salary Calculator february 2025 ROL: programmer Full Stack",
+        proyecto1Titulo: "Salary Calculator february 2025 rol: programmer Full Stack",
         proyecto1Desc: "Web application to calculate your salary in El Salvador after deducting what the law dictates",
-        proyecto2Titulo: "Student Billing System february 2024 - march 2024 ROL: programmer Full Stack",
+        proyecto2Titulo: "Student Billing System february 2024 - march 2024 rol: programmer Full Stack",
         proyecto2Desc: "Web platform focused on student registration, subjects, and enrollment billing",
-        proyecto3Titulo: "TecnologyEco february 2024 - may 2024 ROL: programmer Back-end",
+        proyecto3Titulo: "TecnologyEco february 2024 - may 2024 rol: programmer Back-end",
         proyecto3Desc: "Web platform focused on being an intermediary between users and companies for recycling electronic device parts",
         verProyecto: "View Project",
         // Interests Section
@@ -191,26 +191,31 @@ function changeLanguage() {
     });
     
     // Actualizar sección de proyectos
-    document.querySelector('#proyectos h2').textContent = translations[newLang].misProyectos;
-    
-    // Actualizar títulos y descripciones de proyectos
-    const proyectos = document.querySelectorAll('.proyecto');
-    const proyectosTitulos = [
-        translations[newLang].proyecto1Titulo,
-        translations[newLang].proyecto2Titulo,
-        translations[newLang].proyecto3Titulo
-    ];
-    const proyectosDesc = [
-        translations[newLang].proyecto1Desc,
-        translations[newLang].proyecto2Desc,
-        translations[newLang].proyecto3Desc
-    ];
-    
-    proyectos.forEach((proyecto, index) => {
-        proyecto.querySelector('h2').textContent = proyectosTitulos[index];
-        proyecto.querySelector('p').textContent = proyectosDesc[index];
-        proyecto.querySelector('.boton-proyecto').textContent = translations[newLang].verProyecto;
-    });
+document.querySelector('#proyectos h2').textContent = translations[newLang].misProyectos;
+
+// Actualizar títulos, descripciones y botones de proyectos
+const proyectosContenido = [
+    {
+        titulo: translations[newLang].proyecto1Titulo,
+        descripcion: translations[newLang].proyecto1Desc
+    },
+    {
+        titulo: translations[newLang].proyecto2Titulo,
+        descripcion: translations[newLang].proyecto2Desc
+    },
+    {
+        titulo: translations[newLang].proyecto3Titulo,
+        descripcion: translations[newLang].proyecto3Desc
+    }
+];
+
+const proyectos = document.querySelectorAll('.proyecto');
+proyectos.forEach((proyecto, index) => {
+    const contenido = proyectosContenido[index];
+    proyecto.querySelector('h3').textContent = contenido.titulo; // Cambiado de h2 a h3
+    proyecto.querySelector('p').textContent = contenido.descripcion;
+    proyecto.querySelector('a.boton-proyecto').textContent = translations[newLang].verProyecto;
+});
     
     // Actualizar formulario de contacto
     document.querySelector('#contacto h2').textContent = translations[newLang].contacto;
