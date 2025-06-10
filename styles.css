@@ -741,11 +741,13 @@ footer {
     margin-right: -300px; /* Empuja el menú a la derecha */
     margin-left: 400px;
     padding: 5px 20px;
+    
 }
 
 .logo-pequeno {
     height: 50px; /* Tamaño para el header */
     transition: transform 0.3s ease;
+    
 
 }
 
@@ -754,39 +756,15 @@ footer {
 }
 
 
-/* Logo grande en inicio */
-.logo-grande {
-    flex: 0 0 300px;
-    text-align: right;
-    margin-top: -270px;
-    margin-right: 150px;
-}
-
-.logo-principal {
-    max-width: 100%;
-    height: auto;
-    max-height: 300px;
-    animation: flotar 3s ease-in-out infinite alternate;
-}
-
-@keyframes flotar {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-15px); }
-}
-
 /* Responsive */
 @media (max-width: 768px) {
     .bienvenida-contenedor {
         flex-direction: column;
     }
     
-    .logo-grande {
-        margin-top: 30px;
-        flex: 0 0 auto;
-    }
-    
     .logo-pequeno {
         height: 30px;
+        margin-left: -150%;
     }
 }
 
