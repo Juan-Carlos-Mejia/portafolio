@@ -34,13 +34,29 @@ const translations = {
         creatividad: "Creatividad \nÉtica y responsabilidad",
         aprendizaje: "Capacidad de aprendizaje \n Escucha activa",
         // Proyectos
-        proyecto1Titulo: "Calculadora Salarial",
+        proyecto1Titulo: "Calculadora Salarial febrero 2025  ROL: Programador Full Stack ",
         proyecto1Desc: "Aplicación web para calcular su salario en el salvador despues de descontar lo que dicte la ley",
-        proyecto2Titulo: "Sistema de Facturación para Alumnos",
+        proyecto2Titulo: "Sistema de Facturación para Alumnos febrero 2024 - marzo 2024 ROL: Programador Full Stack",
         proyecto2Desc: "Plataforma web enfocado en el registros de alumnos, materias y facturación por inscripción",
-        proyecto3Titulo: "TecnologyEco",
+        proyecto3Titulo: "TecnologyEco febrero 2024 - mayo 2024 ROL: Programador Back-end",
         proyecto3Desc: "Plataforma web enfocada en ser intermediaria entre usuarios y empresas para el reciclado de piezas de dispositivos electronicos",
-        verProyecto: "Ver Proyecto"
+        verProyecto: "Ver Proyecto",
+        // Sección Intereses
+        intereses: "Mis Intereses",
+        interes1Titulo: "Inteligencia Artificial",
+        interes1Desc: "Fascinado por el aprendizaje automático y cómo las IA están transformando el mundo tecnológico.",
+        interes2Titulo: "Ciberseguridad",
+        interes2Desc: "Apasionado por proteger sistemas y datos, siempre aprendiendo sobre nuevas vulnerabilidades y defensas.",
+        interes3Titulo: "Tecnología Verde",
+        interes3Desc: "Interesado en desarrollo sostenible y cómo la tecnología puede reducir el impacto ambiental.",
+        interes4Titulo: "Desarrollo de Videojuegos",
+        interes4Desc: "Como hobby, disfruto creando pequeños juegos y explorando motores como Unity y Godot.",
+        interes5Titulo: "Hardware y IoT",
+        interes5Desc: "Experimentar con Arduino y Raspberry Pi para crear proyectos de domótica y automatización.",
+        interes6Titulo: "Tecnologías Emergentes",
+        interes6Desc: "Siempre investigando sobre blockchain, computación cuántica y otras tecnologías innovadoras.",
+        interes7Titulo: "Aprendizaje Continuo",
+        interes7Desc: "Dedicado a aprender constantemente nuevos lenguajes, frameworks y metodologías de desarrollo."
     },
     en: {
         inicio: "Home",
@@ -76,13 +92,29 @@ const translations = {
         creatividad: "Creativity \nEthics and responsibility",
         aprendizaje: "Learning ability \n Active listening",
         // Projects
-        proyecto1Titulo: "Salary Calculator",
+        proyecto1Titulo: "Salary Calculator february 2025 ROL: programmer Full Stack",
         proyecto1Desc: "Web application to calculate your salary in El Salvador after deducting what the law dictates",
-        proyecto2Titulo: "Student Billing System",
+        proyecto2Titulo: "Student Billing System february 2024 - march 2024 ROL: programmer Full Stack",
         proyecto2Desc: "Web platform focused on student registration, subjects, and enrollment billing",
-        proyecto3Titulo: "TecnologyEco",
+        proyecto3Titulo: "TecnologyEco february 2024 - may 2024 ROL: programmer Back-end",
         proyecto3Desc: "Web platform focused on being an intermediary between users and companies for recycling electronic device parts",
-        verProyecto: "View Project"
+        verProyecto: "View Project",
+        // Interests Section
+        intereses: "My Interests",
+        interes1Titulo: "Artificial Intelligence",
+        interes1Desc: "Fascinated by machine learning and how AI is transforming the technological world.",
+        interes2Titulo: "Cybersecurity",
+        interes2Desc: "Passionate about protecting systems and data, always learning about new vulnerabilities and defenses.",
+        interes3Titulo: "Green Technology",
+        interes3Desc: "Interested in sustainable development and how technology can reduce environmental impact.",
+        interes4Titulo: "Game Development",
+        interes4Desc: "As a hobby, I enjoy creating small games and exploring engines like Unity and Godot.",
+        interes5Titulo: "Hardware and IoT",
+        interes5Desc: "Experimenting with Arduino and Raspberry Pi to create home automation and automation projects.",
+        interes6Titulo: "Emerging Technologies",
+        interes6Desc: "Always researching blockchain, quantum computing and other innovative technologies.",
+        interes7Titulo: "Continuous Learning",
+        interes7Desc: "Committed to constantly learning new languages, frameworks and development methodologies."
     }
 };
 
@@ -128,6 +160,35 @@ function changeLanguage() {
     
     // Actualizar sección de certificaciones
     document.querySelector('#certificaciones h2').textContent = translations[newLang].certificaciones;
+
+    // Actualizar sección de intereses
+    document.querySelector('#intereses h2').textContent = translations[newLang].intereses;
+    
+    // Actualizar tarjetas de intereses
+    const interesesCards = document.querySelectorAll('.interes-card');
+    const interesesTitulos = [
+        translations[newLang].interes1Titulo,
+        translations[newLang].interes2Titulo,
+        translations[newLang].interes3Titulo,
+        translations[newLang].interes4Titulo,
+        translations[newLang].interes5Titulo,
+        translations[newLang].interes6Titulo,
+        translations[newLang].interes7Titulo
+    ];
+    const interesesDesc = [
+        translations[newLang].interes1Desc,
+        translations[newLang].interes2Desc,
+        translations[newLang].interes3Desc,
+        translations[newLang].interes4Desc,
+        translations[newLang].interes5Desc,
+        translations[newLang].interes6Desc,
+        translations[newLang].interes7Desc
+    ];
+    
+    interesesCards.forEach((card, index) => {
+        card.querySelector('h2').textContent = interesesTitulos[index];
+        card.querySelector('p').textContent = interesesDesc[index];
+    });
     
     // Actualizar sección de proyectos
     document.querySelector('#proyectos h2').textContent = translations[newLang].misProyectos;
@@ -146,7 +207,7 @@ function changeLanguage() {
     ];
     
     proyectos.forEach((proyecto, index) => {
-        proyecto.querySelector('h3').textContent = proyectosTitulos[index];
+        proyecto.querySelector('h2').textContent = proyectosTitulos[index];
         proyecto.querySelector('p').textContent = proyectosDesc[index];
         proyecto.querySelector('.boton-proyecto').textContent = translations[newLang].verProyecto;
     });

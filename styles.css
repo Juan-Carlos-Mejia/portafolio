@@ -538,7 +538,145 @@ footer {
     background-color: #789048;
     color: #fff;
 }
+/* Estilos para la sección de intereses */
+#intereses {
 
+    padding: 60px 0;
+}
+
+.intereses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.interes-card {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e9ecef;
+}
+
+.interes-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.interes-icono {
+    font-size: 2.5rem;
+    color: #4a6fa5;
+    margin-bottom: 20px;
+}
+
+.interes-card h3 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.interes-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .intereses-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Estilos para la sección de testimonios */
+#testimonios {
+    padding: 60px 0;
+}
+
+.testimonios-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.testimonio {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    width: 100%;
+    max-width: 350px;
+    transition: transform 0.3s ease;
+}
+
+.testimonio:hover {
+    transform: translateY(-10px);
+}
+
+.testimonio-cabecera {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.testimonio-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 3px solid #4a6fa5;
+}
+
+.testimonio-info h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.testimonio-info p {
+    margin: 5px 0 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.testimonio-texto p {
+    color: #555;
+    line-height: 1.6;
+    font-style: italic;
+    position: relative;
+    padding-left: 20px;
+}
+
+.testimonio-texto p::before {
+    content: '"';
+    font-size: 3rem;
+    color: #4a6fa5;
+    opacity: 0.2;
+    position: absolute;
+    left: -10px;
+    top: -15px;
+}
+
+.estrellas {
+    color: #ffc107;
+    margin-top: 15px;
+    font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .testimonios-contenedor {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .testimonio {
+        max-width: 100%;
+    }
+}
 /* Estilos para dispositivos móviles */
 
 /* Media Queries para móviles */

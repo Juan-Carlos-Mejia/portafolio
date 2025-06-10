@@ -1,8 +1,24 @@
-// JavaScript para interactividad (opcional)
-document.getElementById('contacto-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    alert('Gracias por tu mensaje. Te contactaré pronto.');
-    // Aquí puedes agregar código para enviar el formulario a un servidor
+document.getElementById('contacto-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = e.target;
+    fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            alert('¡Mensaje enviado con éxito!');
+            form.reset();
+        } else {
+            throw new Error('Error al enviar');
+        }
+    })
+    .catch(error => {
+        alert('Hubo un error. Por favor intenta nuevamente.');
+    });
 });
 
 // Función para detectar el scroll
@@ -112,19 +128,57 @@ clonarCertificaciones();
 iniciarCarruselAutomatico();
 
 // Modal
-const modal = document.getElementById('modal');
-const modalImagen = document.getElementById('modal-imagen');
+    const modal = document.getElementById('modal');
+    const modalImagen = document.getElementById('modal-imagen');
 
-document.querySelectorAll('.certificacion img').forEach(imagen => {
+    document.querySelectorAll('.certificacion img').forEach(imagen => {
+        imagen.addEventListener('click', () => {
+            modal.style.display = 'flex';
+            modalImagen.src = imagen.src;
+        });
+    });
+
+    function cerrarModal() {
+        modal.style.display = 'none';
+    }
+
+let imagenesModal = [];
+let indiceModal = 0;
+
+// Al hacer clic en una imagen, se abre el modal y se guarda el índice
+document.querySelectorAll('.certificacion img').forEach((imagen, index) => {
+    imagenesModal.push(imagen.src);
     imagen.addEventListener('click', () => {
+        indiceModal = index;
         modal.style.display = 'flex';
-        modalImagen.src = imagen.src;
+        modalImagen.src = imagenesModal[indiceModal];
     });
 });
 
-function cerrarModal() {
-    modal.style.display = 'none';
+function cambiarImagenModal(direccion) {
+    indiceModal += direccion;
+
+    if (indiceModal < 0) {
+        indiceModal = imagenesModal.length - 1;
+    } else if (indiceModal >= imagenesModal.length) {
+        indiceModal = 0;
+    }
+
+    modalImagen.src = imagenesModal[indiceModal];
 }
+document.addEventListener('keydown', (event) => {
+    if (modal.style.display === 'flex') {
+        if (event.key === 'ArrowLeft') {
+            cambiarImagenModal(-1);
+        } else if (event.key === 'ArrowRight') {
+            cambiarImagenModal(1);
+        } else if (event.key === 'escape') {
+            cerrarModal();
+        }
+    }
+});
+
+
 
 //manipulacion del muro
 let cubo = document.getElementById("cubo");
