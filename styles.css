@@ -389,7 +389,7 @@ form button:hover {
 
 footer {
     background-color: var(--menu-bg);
-    color: #f0f0d8;
+    color: var(--text-primary);
     padding: 20px 40px;
     text-align: center;
     position: relative;
@@ -423,7 +423,23 @@ footer {
 }
 
 .footer-links a:hover {
-    color: #ffffff;
+    color: var(--text-primary);
+}
+
+/* Versión para móvil (por defecto) */
+.footer-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-links {
+    margin-top: 15px;
+    position: static;
+    transform: none;
 }
 
 /* Versión para escritorio */
@@ -431,18 +447,20 @@ footer {
     .footer-container {
         flex-direction: row;
         justify-content: center;
+        padding: 20px 5%; /* Añade padding a los lados */
     }
     
     .footer-text {
-        order: 1; /* Vuelve al orden original */
+        order: 1;
     }
     
     .footer-links {
-        order: 2; /* Vuelve al orden original */
+        order: 2;
         position: absolute;
         right: 5%;
         top: 50%;
         transform: translateY(-50%);
+        margin-top: 0;
     }
 }
   
