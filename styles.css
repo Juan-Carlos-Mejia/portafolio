@@ -391,7 +391,6 @@ footer {
     background-color: var(--menu-bg);
     color: #f0f0d8;
     padding: 20px 40px;
-    text-align: center;
     position: relative;
 }
 
@@ -400,20 +399,22 @@ footer {
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center; /* Centrado para móvil y escritorio */
 }
 
 .footer-text {
     margin: 0;
     font-size: 0.95rem;
-    order: 2; /* Cambia el orden para móviles */
+    order: 2; /* Texto abajo en móvil */
+    width: 100%; /* Ocupa todo el ancho */
 }
 
 .footer-links {
     display: flex;
     gap: 15px;
-    order: 1; /* Cambia el orden para móviles */
-    position: static;
-    transform: none;
+    order: 1; /* Links arriba en móvil */
 }
 
 .footer-links a {
@@ -429,29 +430,26 @@ footer {
 /* Versión para escritorio */
 @media (min-width: 768px) {
     .footer-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box; /* Asegura que el padding no sume al ancho total */
-    overflow: hidden; /* Previene cualquier desbordamiento */
-}
+        flex-direction: row;
+        justify-content: center; /* Centra el conjunto */
+        position: relative;
+        text-align: center; /* Mantiene texto centrado */
+    }
     
     .footer-text {
-        order: 1; /* Vuelve al orden original */
+        order: 1;
+        width: auto; /* Ancho automático */
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%); /* Centrado preciso */
     }
     
     .footer-links {
-    margin-top: 15px;
-    display: flex;
-    flex-wrap: wrap; /* Permite que los links se ajusten en móvil */
-    justify-content: center;
-    gap: 15px; /* Espacio entre links */
-    width: 100%;
-}
+        order: 2;
+        margin-left: auto; /* Empuja los links a la derecha */
+        position: static;
+        transform: none;
+    }
 }
   
 /* Estilos para el carrusel */
