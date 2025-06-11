@@ -445,12 +445,13 @@ footer {
     }
     
     .footer-links {
-        order: 2; /* Vuelve al orden original */
-        position: absolute;
-        right: 5%;
-        top: 50%;
-        transform: translateY(-50%);
-    }
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap; /* Permite que los links se ajusten en móvil */
+    justify-content: center;
+    gap: 15px; /* Espacio entre links */
+    width: 100%;
+}
 }
   
 /* Estilos para el carrusel */
