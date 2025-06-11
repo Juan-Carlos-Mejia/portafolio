@@ -64,7 +64,7 @@ nav {
 .menu-icon {
     display: none; /* Oculta el ícono del menú en pantallas grandes */
     font-size: 24px;
-    color: var(--text-primary);
+    color: #ffffff;
     background-color: var(--menu-bg);
     cursor: pointer;
 }
@@ -389,7 +389,7 @@ form button:hover {
 
 footer {
     background-color: var(--menu-bg);
-    color: var(--text-primary);
+    color: #f0f0d8;
     padding: 20px 40px;
     text-align: center;
     position: relative;
@@ -423,44 +423,33 @@ footer {
 }
 
 .footer-links a:hover {
-    color: var(--text-primary);
+    color: #ffffff;
 }
 
-/* Versión para móvil (por defecto) */
-.footer-container {
+/* Versión para escritorio */
+@media (min-width: 768px) {
+    .footer-container {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
     text-align: center;
+    width: 100%;
+    box-sizing: border-box; /* Asegura que el padding no sume al ancho total */
+    overflow: hidden; /* Previene cualquier desbordamiento */
 }
-
-.footer-links {
-    margin-top: 15px;
-    position: static;
-    transform: none;
-}
-
-/* Versión para escritorio */
-@media (min-width: 768px) {
-    .footer-container {
-        flex-direction: row;
-        justify-content: center;
-        padding: 20px 5%; /* Añade padding a los lados */
-    }
     
     .footer-text {
-        order: 1;
+        order: 1; /* Vuelve al orden original */
     }
     
     .footer-links {
-        order: 2;
+        order: 2; /* Vuelve al orden original */
         position: absolute;
         right: 5%;
         top: 50%;
         transform: translateY(-50%);
-        margin-top: 0;
     }
 }
   
