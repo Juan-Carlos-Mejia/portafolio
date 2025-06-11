@@ -13,7 +13,7 @@ const translations = {
         cvFile: "cv-es.pdf",
         habilidadesTecnicas: "Habilidades Técnicas",
         habilidadesBlandas: "Habilidades Blandas",
-        certificaciones: "Certificaciones",
+        certificaciones: "Certificaciones/Reconocimientos",
         misProyectos: "Mis Proyectos",
         contacto:"Contacto",
         nombre: "Nombre:",
@@ -71,7 +71,7 @@ const translations = {
         cvFile: "cv-en.pdf", // Archivo CV en inglés
         habilidadesTecnicas: "Technical Skills",
         habilidadesBlandas: "Soft Skills",
-        certificaciones: "Certifications",
+        certificaciones: "Certifications/Recognitions",
         misProyectos: "My Projects",
         contacto:"Contact",
         nombre: "Name:",
