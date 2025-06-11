@@ -428,7 +428,7 @@ footer {
 }
 
 /* Versión para escritorio */
-@media (min-width: 768px) {
+@media (min-width: 568px) {
     .footer-container {
         flex-direction: row;
         justify-content: center; /* Centra el conjunto */
