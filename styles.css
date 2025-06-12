@@ -139,6 +139,8 @@ nav {
     display: none;
     flex-direction: column;
     position: absolute;
+    align-items: center; /* Centra los items horizontalmente */
+    justify-content: center; /* (opcional) centra verticalmente si tiene altura fija */
     top: 60px;
     left: 0;
     background-color: var(--menu-bg);
